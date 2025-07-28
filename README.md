@@ -1,4 +1,4 @@
-#Data X: AI-Powered Wildfire Detection System 🌲🔥
+Data X: AI-Powered Wildfire Detection System 🌲🔥
 Guardians of the Green: AI-Powered Wildfire Detection
 
 Data X leverages cutting-edge deep learning and intelligent camera systems for real-time, accurate wildfire detection, protecting our forests and communities.
