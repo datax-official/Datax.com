@@ -1,400 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data X - AI-Powered Wildfire Detection System</title>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data X - AI-Powered Wildfire Detection System</title>
+    
 <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Configure Tailwind CSS to use custom colors for Data X branding
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'datax-green': '#004D40', // Deep Green
-                        'datax-blue': '#2196F3', // Tech Blue
-                        'datax-orange': '#FF7043', // Alert Orange
-                        'datax-dark-bg': '#1A1A1A', // Dark background for sleek look
-                        'datax-light-text': '#E0E0E0', // Light text for dark backgrounds
-                        'datax-gray': '#333333', // Slightly lighter dark for sections
-                    },
-                    fontFamily: {
-                        inter: ['Inter', 'sans-serif'], // Use Inter font
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom styles for smooth scrolling and font application */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1A1A1A; /* Ensure body background matches datax-dark-bg */
-            color: #E0E0E0; /* Default text color */
-        }
-        /* Responsive iframe container for YouTube videos */
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <script>
+        // Configure Tailwind CSS to use custom colors for Data X branding
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'datax-green': '#004D40', // Deep Green
+                        'datax-blue': '#2196F3', // Tech Blue
+                        'datax-orange': '#FF7043', // Alert Orange
+                        'datax-dark-bg': '#1A1A1A', // Dark background for sleek look
+                        'datax-light-text': '#E0E0E0', // Light text for dark backgrounds
+                        'datax-gray': '#333333', // Slightly lighter dark for sections
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'], // Use Inter font
+                    }
+                }
+            }
+        </script>
+    <style>
+        /* Custom styles for smooth scrolling and font application */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1A1A; /* Ensure body background matches datax-dark-bg */
+            color: #E0E0E0; /* Default text color */
+        }
+        /* Responsive iframe container for YouTube videos */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body class="font-inter bg-datax-dark-bg text-datax-light-text">
 
-    
+    
 <header class="bg-datax-dark-bg shadow-lg py-4 px-6 md:px-12 fixed w-full z-50">
-        <nav class="container mx-auto flex justify-between items-center">
-            
+        <nav class="container mx-auto flex justify-between items-center">
+            
 <a href="#hero" class="flex items-center space-x-2">
-                <img src="./images/logo.png" alt="Data X Logo" class="h-10 rounded-lg">
-                <span class="text-2xl font-bold text-datax-light-text">Data X</span>
-            </a>
-            
+                <img src="./images/logo.png" alt="Data X Logo" class="h-10 rounded-lg">
+                <span class="text-2xl font-bold text-datax-light-text">Data X</span>
+            </a>
+            
 <div class="hidden md:flex space-x-8">
-                <a href="#problem" class="text-datax-light-text hover:text-datax-blue transition duration-300">Problem</a>
-                <a href="#solution" class="text-datax-light-text hover:text-datax-blue transition duration-300">Solution</a>
-                <a href="#features" class="text-datax-light-text hover:text-datax-blue transition duration-300">Features</a>
-                <a href="#our-lab" class="text-datax-light-text hover:text-datax-blue transition duration-300">Our Lab</a> 
+                <a href="#problem" class="text-datax-light-text hover:text-datax-blue transition duration-300">Problem</a>
+                <a href="#solution" class="text-datax-light-text hover:text-datax-blue transition duration-300">Solution</a>
+                <a href="#features" class="text-datax-light-text hover:text-datax-blue transition duration-300">Features</a>
+                <a href="#our-lab" class="text-datax-light-text hover:text-datax-blue transition duration-300">Our Lab</a> 
 <a href="#pricing" class="text-datax-light-text hover:text-datax-blue transition duration-300">Pricing</a>
-                <a href="#contact" class="text-datax-light-text hover:text-datax-blue transition duration-300">Contact</a>
-            </div>
-            
+                <a href="#contact" class="text-datax-light-text hover:text-datax-blue transition duration-300">Contact</a>
+            </div>
+            
 <button id="mobile-menu-button" class="md:hidden text-datax-light-text focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </nav>
-        
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        
 <div id="mobile-menu" class="md:hidden hidden bg-datax-dark-bg py-4 mt-2 rounded-lg shadow-lg">
-            <a href="#problem" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Problem</a>
-            <a href="#solution" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Solution</a>
-            <a href="#features" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Features</a>
-            <a href="#our-lab" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Our Lab</a> 
+            <a href="#problem" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Problem</a>
+            <a href="#solution" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Solution</a>
+            <a href="#features" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Features</a>
+            <a href="#our-lab" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Our Lab</a> 
 <a href="#pricing" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Pricing</a>
-            <a href="#contact" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Contact</a>
-        </div>
-    </header>
+            <a href="#contact" class="block py-2 px-4 text-datax-light-text hover:bg-datax-gray transition duration-300 rounded-md">Contact</a>
+        </div>
+    </header>
 
-    <main class="pt-16"> 
+    <main class="pt-16"> 
 <section id="hero" class="relative h-screen flex items-center justify-center text-center px-4 py-20 bg-cover bg-center"
-            style="background-image: url('./images/Hero%20page.png');">
-            <div class="absolute inset-0 bg-black opacity-60"></div> 
+            style="background-image: url('./images/Hero%20page.png');">
+            <div class="absolute inset-0 bg-black opacity-60"></div> 
 <div class="z-10 max-w-4xl mx-auto">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-datax-light-text leading-tight mb-6 animate-fade-in-up">
-                    Guardians of the Green: AI-Powered Wildfire Detection
-                </h1>
-                <p class="text-xl md:text-2xl text-datax-light-text mb-10 animate-fade-in-up delay-200">
-                    Data X leverages cutting-edge deep learning and intelligent camera systems for real-time, accurate wildfire detection, protecting our forests and communities.
-                </p>
-                <a href="mailto:datascientist097@gmail.com" class="bg-datax-orange text-white font-bold py-4 px-8 rounded-full text-lg md:text-xl
-                                     hover:bg-orange-600 transition duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up delay-400">
-                Request a Demo
-                </a>
-            </div>
-        </section>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-datax-light-text leading-tight mb-6 animate-fade-in-up">
+                    Guardians of the Green: AI-Powered Wildfire Detection
+                </h1>
+                <p class="text-xl md:text-2xl text-datax-light-text mb-10 animate-fade-in-up delay-200">
+                    Data X leverages cutting-edge deep learning and intelligent camera systems for real-time, accurate wildfire detection, protecting our forests and communities.
+                </p>
+                <a href="mailto:datascientist097@gmail.com" class="bg-datax-orange text-white font-bold py-4 px-8 rounded-full text-lg md:text-xl
+                                     hover:bg-orange-600 transition duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up delay-400">
+                Request a Demo
+                </a>
+            </div>
+        </section>
 
-        
+        
 <section id="problem" class="py-20 px-6 bg-datax-dark-bg text-center">
-            <div class="container mx-auto max-w-3xl">
-                <h2 class="text-4xl font-bold text-datax-blue mb-8">The Growing Threat of Wildfires</h2>
-                <p class="text-lg leading-relaxed mb-6">
-                    Wildfires are an escalating global crisis, causing immense ecological damage, economic devastation, and loss of life. Traditional detection methods are often slow, reactive, and insufficient to combat the speed and scale of modern blazes.
-                </p>
-                <p class="text-lg leading-relaxed">
-                    Annually, over <span class="font-bold text-datax-orange">400 million acres</span> are burned worldwide, costing billions in damages and releasing massive amounts of carbon. The urgency for proactive, intelligent solutions has never been greater.
-                </p>
-            </div>
-        </section>
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-4xl font-bold text-datax-blue mb-8">The Growing Threat of Wildfires</h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Wildfires are an escalating global crisis, causing immense ecological damage, economic devastation, and loss of life. Traditional detection methods are often slow, reactive, and insufficient to combat the speed and scale of modern blazes.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Annually, over <span class="font-bold text-datax-orange">400 million acres</span> are burned worldwide, costing billions in damages and releasing massive amounts of carbon. The urgency for proactive, intelligent solutions has never been greater.
+                </p>
+            </div>
+        </section>
 
-        
+        
 <section id="solution" class="py-20 px-6 bg-datax-gray text-center">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-4xl font-bold text-datax-green mb-8">Data X: Your Proactive Defense </h2>
-                <p class="text-lg leading-relaxed mb-10">
-                    Data X offers a revolutionary AI-powered wildfire detection system. Watch our video to see how our network of high-resolution cameras, strategically deployed across vulnerable landscapes, feeds real-time visual data into advanced deep learning models. These models are trained to instantly identify the earliest signs of fire, from subtle smoke plumes to nascent flames, long before they become uncontrollable.
-                </p>
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
-                    
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl font-bold text-datax-green mb-8">Data X: Your Proactive Defense </h2>
+                <p class="text-lg leading-relaxed mb-10">
+                    Data X offers a revolutionary AI-powered wildfire detection system. Watch our video to see how our network of high-resolution cameras, strategically deployed across vulnerable landscapes, feeds real-time visual data into advanced deep learning models. These models are trained to instantly identify the earliest signs of fire, from subtle smoke plumes to nascent flames, long before they become uncontrollable.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
+                    
 <div class="video-container w-full md:w-1/2">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5GNECDBvsBQ?si=eqeVjlOWEhFas2L4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="text-left md:w-1/2">
-                        <h3 class="text-3xl font-semibold text-datax-light-text mb-4">How it Works:</h3>
-                        <ul class="list-disc list-inside text-lg space-y-3">
-                            <li><span class="font-bold text-datax-orange">Real-time Monitoring:</span> Continuous visual surveillance of vast areas.</li>
-                            <li><span class="font-bold text-datax-orange">Deep Learning Analysis:</span> AI models instantly detect anomalies (smoke, flame signatures).</li>
-                            <li><span class="font-bold text-datax-orange">Instant Alerts:</span> Automated notifications to authorities and designated personnel within seconds.</li>
-                            <li><span class="font-bold text-datax-orange">Predictive Insights:</span> AI analyzes conditions to predict fire spread and risk zones.</li>
-                        </ul>
-                        <p class="mt-6">
-                            <a href="http://www.youtube.com/watch?v=5GNECDBvsBQ" target="_blank" class="bg-datax-blue text-white font-bold py-2 px-4 rounded-full text-md hover:bg-blue-700 transition duration-300">
-                                Watch on YouTube
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5GNECDBvsBQ?si=eqeVjlOWEhFas2L4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="text-left md:w-1/2">
+                        <h3 class="text-3xl font-semibold text-datax-light-text mb-4">How it Works:</h3>
+                        <ul class="list-disc list-inside text-lg space-y-3">
+                            <li><span class="font-bold text-datax-orange">Real-time Monitoring:</span> Continuous visual surveillance of vast areas.</li>
+                            <li><span class="font-bold text-datax-orange">Deep Learning Analysis:</span> AI models instantly detect anomalies (smoke, flame signatures).</li>
+                            <li><span class="font-bold text-datax-orange">Instant Alerts:</span> Automated notifications to authorities and designated personnel within seconds.</li>
+                            <li><span class="font-bold text-datax-orange">Predictive Insights:</span> AI analyzes conditions to predict fire spread and risk zones.</li>
+                        </ul>
+                        <p class="mt-6">
+                            <a href="http://www.youtube.com/watch?v=5GNECDBvsBQ" target="_blank" class="bg-datax-blue text-white font-bold py-2 px-4 rounded-full text-md hover:bg-blue-700 transition duration-300">
+                                Watch on YouTube
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
+        
 <section id="features" class="py-20 px-6 bg-datax-dark-bg">
-            <div class="container mx-auto text-center">
-                <h2 class="text-4xl font-bold text-datax-blue mb-12">Unrivaled Features for Superior Protection</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold text-datax-blue mb-12">Unrivaled Features for Superior Protection</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
-                        <div class="text-datax-orange text-5xl mb-6">🔥</div>
-                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">AI-Powered Anomaly Detection</h3>
-                        <p class="text-md text-datax-light-text">Our deep learning models are trained on vast datasets to differentiate smoke and fire from environmental noise, ensuring unparalleled accuracy and minimal false positives.</p>
-                    </div>
-                    
+                        <div class="text-datax-orange text-5xl mb-6">🔥</div>
+                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">AI-Powered Anomaly Detection</h3>
+                        <p class="text-md text-datax-light-text">Our deep learning models are trained on vast datasets to differentiate smoke and fire from environmental noise, ensuring unparalleled accuracy and minimal false positives.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
-                        <div class="text-datax-orange text-5xl mb-6">👁️</div>
-                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">Real-time Camera Feeds</h3>
-                        <p class="text-md text-datax-light-text">Access live, high-definition camera feeds from your monitored areas, providing immediate visual confirmation and situational awareness.</p>
-                    </div>
-                    
+                        <div class="text-datax-orange text-5xl mb-6">👁️</div>
+                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">Real-time Camera Feeds</h3>
+                        <p class="text-md text-datax-light-text">Access live, high-definition camera feeds from your monitored areas, providing immediate visual confirmation and situational awareness.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
-                        <div class="text-datax-orange text-5xl mb-6">📊</div>
-                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">Predictive Analytics</h3>
-                        <p class="text-md text-datax-light-text">Leverage AI-driven insights to predict fire spread patterns, identify high-risk zones, and optimize resource deployment before a crisis escalates.</p>
-                    </div>
-                    
+                        <div class="text-datax-orange text-5xl mb-6">📊</div>
+                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">Predictive Analytics</h3>
+                        <p class="text-md text-datax-light-text">Leverage AI-driven insights to predict fire spread patterns, identify high-risk zones, and optimize resource deployment before a crisis escalates.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
-                        <div class="text-datax-orange text-5xl mb-6">🚨</div>
-                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">Automated Alerting System</h3>
-                        <p class="text-md text-datax-light-text">Receive instant, multi-channel alerts (SMS, email, dashboard notifications) with precise location data and visual evidence upon detection.</p>
-                    </div>
-                    
+                        <div class="text-datax-orange text-5xl mb-6">🚨</div>
+                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">Automated Alerting System</h3>
+                        <p class="text-md text-datax-light-text">Receive instant, multi-channel alerts (SMS, email, dashboard notifications) with precise location data and visual evidence upon detection.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
-                        <div class="text-datax-orange text-5xl mb-6">🚁</div>
-                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">Drone Integration Capability</h3>
-                        <p class="text-md text-datax-light-text">Seamlessly integrate with drone systems for rapid aerial verification and closer inspection of detected fire incidents, enhancing response efficiency.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <div class="text-datax-orange text-5xl mb-6">🚁</div>
+                        <h3 class="text-2xl font-semibold text-datax-light-text mb-4">Drone Integration Capability</h3>
+                        <p class="text-md text-datax-light-text">Seamlessly integrate with drone systems for rapid aerial verification and closer inspection of detected fire incidents, enhancing response efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
+        
 <section id="our-lab" class="py-20 px-6 bg-datax-gray text-center">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-4xl font-bold text-datax-green mb-8">Innovation at Data X Labs</h2>
-                <p class="text-lg leading-relaxed mb-10">
-                    Our dedicated team of AI researchers and engineers work tirelessly in state-of-the-art facilities to push the boundaries of wildfire detection technology. This is where the future of forest protection is forged.
-                </p>
-                <img src="./images/Data X Labs.png" alt="Data X Labs Office" class="w-full rounded-lg shadow-xl mb-10 transform hover:scale-105 transition duration-300">
-                <p class="text-lg leading-relaxed">
-                    From deep learning model development to advanced sensor integration, Data X Labs is at the forefront of creating intelligent solutions for a safer planet.
-                </p>
-            </div>
-        </section>
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl font-bold text-datax-green mb-8">Innovation at Data X Labs</h2>
+                <p class="text-lg leading-relaxed mb-10">
+                    Our dedicated team of AI researchers and engineers work tirelessly in state-of-the-art facilities to push the boundaries of wildfire detection technology. This is where the future of forest protection is forged.
+                </p>
+                <img src="./images/Data X Labs.png" alt="Data X Labs Office" class="w-full rounded-lg shadow-xl mb-10 transform hover:scale-105 transition duration-300">
+                <p class="text-lg leading-relaxed">
+                    From deep learning model development to advanced sensor integration, Data X Labs is at the forefront of creating intelligent solutions for a safer planet.
+                </p>
+            </div>
+        </section>
 
-        
+        
 <section id="use-cases" class="py-20 px-6 bg-datax-dark-bg">
-            <div class="container mx-auto text-center">
-                <h2 class="text-4xl font-bold text-datax-blue mb-12">Transforming Wildfire Management</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold text-datax-blue mb-12">Transforming Wildfire Management</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-semibold text-datax-blue mb-4">Automated Early Response Dispatch</h3>
-                        <p class="text-datax-light-text">Upon detection, Data X can automatically trigger protocols for drone dispatch or alert nearby emergency response units with precise coordinates, significantly reducing response times and containing fires faster.</p>
-                    </div>
-                    
+                        <h3 class="text-2xl font-semibold text-datax-blue mb-4">Automated Early Response Dispatch</h3>
+                        <p class="text-datax-light-text">Upon detection, Data X can automatically trigger protocols for drone dispatch or alert nearby emergency response units with precise coordinates, significantly reducing response times and containing fires faster.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-semibold text-datax-blue mb-4">Climate Impact Prediction & Reporting</h3>
-                        <p class="text-datax-light-text">Beyond detection, Data X integrates with climate models to provide insights into potential fire behavior under changing conditions, aiding long-term environmental planning and detailed impact reporting for policy makers.</p>
-                    </div>
-                    
+                        <h3 class="text-2xl font-semibold text-datax-blue mb-4">Climate Impact Prediction & Reporting</h3>
+                        <p class="text-datax-light-text">Beyond detection, Data X integrates with climate models to provide insights into potential fire behavior under changing conditions, aiding long-term environmental planning and detailed impact reporting for policy makers.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-semibold text-datax-blue mb-4">Smart Resource Optimization</h3>
-                        <p class="text-datax-light-text">Utilize Data X's predictive analytics to dynamically allocate firefighting resources. Understand where and when resources are most needed, optimizing deployment for maximum effectiveness and safety.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <h3 class="text-2xl font-semibold text-datax-blue mb-4">Smart Resource Optimization</h3>
+                        <p class="text-datax-light-text">Utilize Data X's predictive analytics to dynamically allocate firefighting resources. Understand where and when resources are most needed, optimizing deployment for maximum effectiveness and safety.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
+        
 <section id="testimonials" class="py-20 px-6 bg-datax-dark-bg">
-            <div class="container mx-auto text-center max-w-4xl">
-                <h2 class="text-4xl font-bold text-datax-blue mb-12">What Our Partners Say</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-4xl font-bold text-datax-blue mb-12">What Our Partners Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg">
-                        <p class="text-lg italic mb-6">"Data X has revolutionized our wildfire response. The speed and accuracy of detection are unmatched, allowing us to deploy resources much faster and save critical acreage."</p>
-                        <p class="font-semibold text-datax-orange">- Forest Ranger John Smith</p>
-                    </div>
-                    
+                        <p class="text-lg italic mb-6">"Data X has revolutionized our wildfire response. The speed and accuracy of detection are unmatched, allowing us to deploy resources much faster and save critical acreage."</p>
+                        <p class="font-semibold text-datax-orange">- Forest Ranger John Smith</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg">
-                        <p class="text-lg italic mb-6">"As a property owner in a high-risk area, Data X gives me peace of mind. Knowing there's an intelligent eye constantly watching makes all the difference."</p>
-                        <p class="font-semibold text-datax-orange">- Property Owner Sarah Chen</p>
-                    </div>
-                    
+                        <p class="text-lg italic mb-6">"As a property owner in a high-risk area, Data X gives me peace of mind. Knowing there's an intelligent eye constantly watching makes all the difference."</p>
+                        <p class="font-semibold text-datax-orange">- Property Owner Sarah Chen</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-8 rounded-xl shadow-lg">
-                        <p class="text-lg italic mb-6">"The integration capabilities and predictive insights from Data X are invaluable for our emergency services. It's a game-changer for proactive wildfire management."</p>
-                        <p class="font-semibold text-datax-orange">- Emergency Services Director Maria Rodriguez</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <p class="text-lg italic mb-6">"The integration capabilities and predictive insights from Data X are invaluable for our emergency services. It's a game-changer for proactive wildfire management."</p>
+                        <p class="font-semibold text-datax-orange">- Emergency Services Director Maria Rodriguez</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
+        
 <section id="pricing" class="py-20 px-6 bg-datax-gray">
-            <div class="container mx-auto text-center max-w-5xl">
-                <h2 class="text-4xl font-bold text-datax-green mb-12">Flexible Plans for Comprehensive Protection</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
+            <div class="container mx-auto text-center max-w-5xl">
+                <h2 class="text-4xl font-bold text-datax-green mb-12">Flexible Plans for Comprehensive Protection</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
 <div class="bg-datax-dark-bg p-8 rounded-xl shadow-lg flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-3xl font-bold text-datax-orange mb-4">Basic Protect</h3>
-                            <p class="text-lg mb-6 text-datax-light-text">Ideal for small land owners and private reserves.</p>
-                            <ul class="text-left text-datax-light-text space-y-3 mb-8">
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Standard AI Detection</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Email & SMS Alerts</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Basic Dashboard Access</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Up to 5 Camera Feeds</li>
-                            </ul>
-                        </div>
-                        <button class="bg-datax-blue text-white font-bold py-3 px-6 rounded-full text-lg
-                                         hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-md">
-                            Get Started
-                        </button>
-                    </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-datax-orange mb-4">Basic Protect</h3>
+                            <p class="text-lg mb-6 text-datax-light-text">Ideal for small land owners and private reserves.</p>
+                            <ul class="text-left text-datax-light-text space-y-3 mb-8">
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Standard AI Detection</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Email & SMS Alerts</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Basic Dashboard Access</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Up to 5 Camera Feeds</li>
+                            </ul>
+                        </div>
+                        <button class="bg-datax-blue text-white font-bold py-3 px-6 rounded-full text-lg
+                                         hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-md">
+                            Get Started
+                        </button>
+                    </div>
 
-                    
+                    
 <div class="bg-datax-dark-bg p-8 rounded-xl shadow-lg border-2 border-datax-orange flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-3xl font-bold text-datax-orange mb-4">Pro Monitor</h3>
-                            <p class="text-lg mb-6 text-datax-light-text">Perfect for medium-sized forestry operations and parks.</p>
-                            <ul class="text-left text-datax-light-text space-y-3 mb-8">
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Advanced AI Detection</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Priority Alerts & Notifications</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Full Dashboard Access & Analytics</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Up to 50 Camera Feeds</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Basic Predictive Insights</li>
-                            </ul>
-                        </div>
-                        <button class="bg-datax-orange text-white font-bold py-3 px-6 rounded-full text-lg
-                                         hover:bg-orange-600 transition duration-300 transform hover:scale-105 shadow-md">
-                            Choose Pro
-                        </button>
-                    </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-datax-orange mb-4">Pro Monitor</h3>
+                            <p class="text-lg mb-6 text-datax-light-text">Perfect for medium-sized forestry operations and parks.</p>
+                            <ul class="text-left text-datax-light-text space-y-3 mb-8">
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Advanced AI Detection</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Priority Alerts & Notifications</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Full Dashboard Access & Analytics</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Up to 50 Camera Feeds</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Basic Predictive Insights</li>
+                        </ul>
+                        </div>
+                        <button class="bg-datax-orange text-white font-bold py-3 px-6 rounded-full text-lg
+                                         hover:bg-orange-600 transition duration-300 transform hover:scale-105 shadow-md">
+                            Choose Pro
+                        </button>
+                    </div>
 
-                    
+                    
 <div class="bg-datax-dark-bg p-8 rounded-xl shadow-lg flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-3xl font-bold text-datax-orange mb-4">Enterprise Sentinel</h3>
-                            <p class="text-lg mb-6 text-datax-light-text">Comprehensive solution for large government agencies & corporations.</p>
-                            <ul class="text-left text-datax-light-text space-y-3 mb-8">
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Custom AI Models & Integration</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Dedicated Support & On-site Setup</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Advanced Predictive Analytics & Reporting</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Unlimited Camera Feeds</li>
-                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Drone Integration & Automated Dispatch</li>
-                            </ul>
-                        </div>
-                        <button class="bg-datax-blue text-white font-bold py-3 px-6 rounded-full text-lg
-                                         hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-md">
-                            Contact Sales
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <div>
+                            <h3 class="text-3xl font-bold text-datax-orange mb-4">Enterprise Sentinel</h3>
+                            <p class="text-lg mb-6 text-datax-light-text">Comprehensive solution for large government agencies & corporations.</p>
+                            <ul class="text-left text-datax-light-text space-y-3 mb-8">
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Custom AI Models & Integration</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Dedicated Support & On-site Setup</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Advanced Predictive Analytics & Reporting</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Unlimited Camera Feeds</li>
+                                <li class="flex items-center"><span class="text-datax-blue mr-2">✅</span> Drone Integration & Automated Dispatch</li>
+                        </ul>
+                        </div>
+                        <button class="bg-datax-blue text-white font-bold py-3 px-6 rounded-full text-lg
+                                         hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-md">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
+        
 <section id="faq" class="py-20 px-6 bg-datax-dark-bg">
-            <div class="container mx-auto max-w-3xl text-center">
-                <h2 class="text-4xl font-bold text-datax-blue mb-12">Frequently Asked Questions</h2>
-                <div class="space-y-6 text-left">
-                    
+            <div class="container mx-auto max-w-3xl text-center">
+                <h2 class="text-4xl font-bold text-datax-blue mb-12">Frequently Asked Questions</h2>
+                <div class="space-y-6 text-left">
+                    
 <div class="bg-datax-gray p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">How accurate is Data X's detection system?</h3>
-                        <p class="text-md text-datax-light-text">Our deep learning models boast over 98% accuracy in identifying smoke and flame signatures, significantly reducing false positives compared to traditional methods. Continuous training further enhances performance.</p>
-                    </div>
-                    
+                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">How accurate is Data X's detection system?</h3>
+                        <p class="text-md text-datax-light-text">Our deep learning models boast over 98% accuracy in identifying smoke and flame signatures, significantly reducing false positives compared to traditional methods. Continuous training further enhances performance.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">What kind of cameras does Data X use?</h3>
-                        <p class="text-md text-datax-light-text">We utilize a range of high-resolution, weather-resistant cameras, including thermal and optical sensors, tailored to the specific environmental conditions and monitoring needs of your area.</p>
-                    </div>
-                    
+                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">What kind of cameras does Data X use?</h3>
+                        <p class="text-md text-datax-light-text">We utilize a range of high-resolution, weather-resistant cameras, including thermal and optical sensors, tailored to the specific environmental conditions and monitoring needs of your area.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">Is installation complex? </h3>
-                        <p class="text-md text-datax-light-text">Data X offers professional installation services. Our systems are designed for efficient deployment, and we provide comprehensive guidance for self-installation for simpler setups.</p>
-                    </div>
-                    
+                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">Is installation complex? </h3>
+                        <p class="text-md text-datax-light-text">Data X offers professional installation services. Our systems are designed for efficient deployment, and we provide comprehensive guidance for self-installation for simpler setups.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">How quickly do I receive alerts?</h3>
-                        <p class="text-md text-datax-light-text">Alerts are generated and dispatched within seconds of a confirmed detection, ensuring the fastest possible response time to potential wildfire incidents.</p>
-                    </div>
-                    
+                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">How quickly do I receive alerts?</h3>
+                        <p class="text-md text-datax-light-text">Alerts are generated and dispatched within seconds of a confirmed detection, ensuring the fastest possible response time to potential wildfire incidents.</p>
+                    </div>
+                    
 <div class="bg-datax-gray p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">What about data privacy and security?</h3>
-                        <p class="text-md text-datax-light-text">Data privacy and security are paramount. All data is encrypted in transit and at rest, and we adhere to strict privacy protocols. Camera feeds are used solely for detection purposes.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <h3 class="text-xl font-semibold text-datax-light-text mb-2">What about data privacy and security?</h3>
+                        <p class="text-md text-datax-light-text">Data privacy and security are paramount. All data is encrypted in transit and at rest, and we adhere to strict privacy protocols. Camera feeds are used solely for detection purposes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
+        
 <section id="contact" class="py-20 px-6 bg-datax-gray text-center">
-            <div class="container mx-auto max-w-2xl">
-                <h2 class="text-4xl font-bold text-datax-orange mb-8">Ready to Protect Your Green Future?</h2>
-                <p class="text-xl text-datax-light-text mb-10">
-                    Join the growing number of organizations leveraging Data X to safeguard their natural assets. Contact us today for a personalized demo and discover how our AI-powered system can revolutionize your wildfire prevention strategy.
-                </p>
-                <a href="mailto:info@datax.ai" class="bg-datax-orange text-white font-bold py-4 px-10 rounded-full text-xl
-                                         hover:bg-orange-600 transition duration-300 transform hover:scale-105 shadow-lg">
-                    Request a Demo Today
-                </a>
-            </div>
-        </section>
-    </main>
+            <div class="container mx-auto max-w-2xl">
+                <h2 class="text-4xl font-bold text-datax-orange mb-8">Ready to Protect Your Green Future?</h2>
+                <p class="text-xl text-datax-light-text mb-10">
+                    Join the growing number of organizations leveraging Data X to safeguard their natural assets. Contact us today for a personalized demo and discover how our AI-powered system can revolutionize your wildfire prevention strategy.
+                </p>
+                <div class="flex justify-center space-x-6 mb-10">
+                    <a href="mailto:datascientist097@gmail.com" class="flex items-center space-x-2 text-datax-light-text hover:text-datax-blue transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" role="img" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+                        </svg>
+                        <span>datascientist097@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/923408226347" target="_blank" class="flex items-center space-x-2 text-datax-light-text hover:text-datax-blue transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.04 2C7.34 2 3.56 5.78 3.56 10.48c0 1.96.65 3.8 1.79 5.3L2 22l6.3-1.65c1.48.8 3.16 1.25 4.74 1.25 4.7 0 8.48-3.78 8.48-8.48S16.74 2 12.04 2zm4.84 12.94c-.16.27-.6.55-.83.58-.2.03-.47.05-.73-.08-.26-.14-1.57-.64-1.82-.72-.25-.08-.43-.03-.6.23-.17.26-.64.72-.78.86-.14.13-.28.1-.47.05-.2-.05-1.12-.41-2.13-1.3-.78-.7-1.3-1.56-1.46-1.83-.16-.27-.02-.42.12-.55.12-.12.27-.29.4-.43.13-.14.17-.23.25-.4.08-.17.04-.3-.02-.42-.06-.12-.47-1.13-.65-1.52-.18-.39-.36-.32-.5-.32-.14 0-.3.02-.47.02-.17 0-.43.06-.65.3-.22.25-.83.82-.83 2.02 0 1.2.85 2.34.97 2.5.12.16 1.65 2.53 4 3.56 2.35 1.02 2.83.86 3.33.8.5-.06 1.6-.65 1.86-1.02.26-.37.26-.68.18-.83-.08-.15-.27-.24-.55-.37z"/>
+                        </svg>
+                        <span>+923408226347</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rajaahmedalikhan" target="_blank" class="flex items-center space-x-2 text-datax-light-text hover:text-datax-blue transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" role="img" fill="currentColor">
+                            <title>LinkedIn icon</title>
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.296zM5.137 7.126V20.45h-3.56V7.126h3.56zM3.352 2.5c-1.144 0-2.071.927-2.071 2.071 0 1.144.927 2.071 2.071 2.071 1.144 0 2.071-.927 2.071-2.071C5.423 3.427 4.496 2.5 3.352 2.5z"/>
+                        </svg>
+                        <span>rajaahmedalikhan</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    
+    
 <footer class="bg-datax-dark-bg py-8 px-6 text-center text-datax-light-text">
-        <div class="container mx-auto">
-            <p>© 2025 Data X. All rights reserved.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="#" class="text-datax-light-text hover:text-datax-blue transition duration-300">Privacy Policy</a>
-                <a href="#" class="text-datax-light-text hover:text-datax-blue transition duration-300">Terms of Service</a>
-            </div>
-        </div>
-    </footer>
+        <div class="container mx-auto">
+            <p>© 2025 Data X. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-datax-light-text hover:text-datax-blue transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-datax-light-text hover:text-datax-blue transition duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 
-    
+    
 <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-            // Close mobile menu when a link is clicked
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-        });
-    </script>
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
